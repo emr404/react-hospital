@@ -7,14 +7,13 @@ const PatientDetails = ({ patient, onClose, isOpen }) => {
     if (isOpen) {
         const { name, hospitalNumber, dateOfBirth, gender } = patient;
         const patientDetails = [
-            { label: 'Name:', value: name },
-            { label: 'Hospital Number:', value: hospitalNumber },
-            { label: 'Date of Birth:', value: new Date(dateOfBirth).toLocaleDateString() },
-            { label: 'Gender:', value: gender },
+            { label: "Name:", value: name },
+            { label: "Hospital Number:", value: hospitalNumber },
+            { label: "Date of Birth:", value: new Date(dateOfBirth).toLocaleDateString() },
+            { label: "Gender:", value: gender },
         ];
-
         return (
-            <Card title='Patient Details'>
+            <Card title="Patient Details">
                 {patientDetails.map(({ label, value }, i) => (
                     <div key={i}>
                         <Label title={label} />

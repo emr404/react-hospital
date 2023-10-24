@@ -6,41 +6,41 @@ import Input from '../components/Input';
 
 const PatientForm = ({ title, isOpen, onSave, onCancel, patientToEdit, existingHospitalNumbers }) => {
     const [editedPatient, setEditedPatient] = useState({
-        hospitalNumber: '',
-        name: '',
-        dateOfBirth: '',
-        gender: 'Male',
+        hospitalNumber: "",
+        name: "",
+        dateOfBirth: "",
+        gender: "Male",
     });
-    const [hospitalNumberWarning, setHospitalNumberWarning] = useState('');
+    const [hospitalNumberWarning, setHospitalNumberWarning] = useState("");
 
     useEffect(() => {
         if (patientToEdit) {
             setEditedPatient({ ...patientToEdit });
         } else {
             setEditedPatient({
-                hospitalNumber: '',
-                name: '',
-                dateOfBirth: '',
-                gender: 'Male',
+                hospitalNumber: "",
+                name: "",
+                dateOfBirth: "",
+                gender: "Male",
             });
         }
     }, [patientToEdit]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        if (name === 'hospitalNumber') {
+        if (name === "hospitalNumber") {
             const isNewHospitalNumber = value !== patientToEdit?.hospitalNumber;
             if (isNewHospitalNumber && existingHospitalNumbers.includes(value)) {
-                setHospitalNumberWarning('Hospital number already exists');
+                setHospitalNumberWarning("Hospital number already exists");
             } else {
-                setHospitalNumberWarning('');
+                setHospitalNumberWarning("");
             }
         }
         setEditedPatient({ ...editedPatient, [name]: value });
     };
 
     const isSaveDisabled = Object.values(editedPatient).some((value) => {
-        if (typeof value === 'string') {
+        if (typeof value === "string") {
             return value.trim().length === 0;
         }
         return !value;
@@ -52,10 +52,10 @@ const PatientForm = ({ title, isOpen, onSave, onCancel, patientToEdit, existingH
             || (patientToEdit && patientToEdit.hospitalNumber === editedPatient.hospitalNumber))) {
             onSave(editedPatient);
             setEditedPatient({
-                hospitalNumber: '',
-                name: '',
-                dateOfBirth: '',
-                gender: 'Male',
+                hospitalNumber: "",
+                name: "",
+                dateOfBirth: "",
+                gender: "Male",
             });
         }
     };
@@ -68,7 +68,7 @@ const PatientForm = ({ title, isOpen, onSave, onCancel, patientToEdit, existingH
     return (
         <Card title={title}>
             <form>
-                <Label title='Hospital Number*' />
+                <Label title="Hospital Number*" />
                 <Input
                     name="hospitalNumber"
                     value={hospitalNumber}
@@ -77,13 +77,13 @@ const PatientForm = ({ title, isOpen, onSave, onCancel, patientToEdit, existingH
                 />
                 {hospitalNumberWarning && <p className="text-red-500">{hospitalNumberWarning}</p>}
 
-                <Label title='Name*' />
+                <Label title="Name*" />
                 <Input
                     name="name"
                     value={name}
                     onChange={handleChange}
                 />
-                <Label title='Date of Birth*' />
+                <Label title="Date of Birth*" />
                 <Input
                     name="dateOfBirth"
                     value={dateOfBirth}
@@ -91,14 +91,14 @@ const PatientForm = ({ title, isOpen, onSave, onCancel, patientToEdit, existingH
                     isDate
                 />
                 <div className="mb-4">
-                    <Label title='Gender*' />
+                    <Label title="Gender*" />
                     <div className="ml-4">
                         <label className="flex items-center space-x-2">
                             <input
                                 type="radio"
                                 name="gender"
                                 value="Male"
-                                checked={gender === 'Male'}
+                                checked={gender === "Male"}
                                 onChange={handleChange}
                                 className="form-radio text-blue-500 focus:outline-none"
                             />
@@ -111,7 +111,7 @@ const PatientForm = ({ title, isOpen, onSave, onCancel, patientToEdit, existingH
                                 type="radio"
                                 name="gender"
                                 value="Female"
-                                checked={gender === 'Female'}
+                                checked={gender === "Female"}
                                 onChange={handleChange}
                                 className="form-radio text-pink-500 focus:outline-none"
                             />
@@ -127,7 +127,7 @@ const PatientForm = ({ title, isOpen, onSave, onCancel, patientToEdit, existingH
                         title="Cancel"
                     />
                     <Button
-                        className={`${isSaveDisabled && 'opacity-50 cursor-not-allowed'}`}
+                        className={`${isSaveDisabled && "opacity-50 cursor-not-allowed"}`}
                         colour="blue"
                         clickAction={handleSave}
                         title="Save"

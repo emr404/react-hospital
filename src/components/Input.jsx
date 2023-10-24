@@ -4,7 +4,7 @@ const Input = ({ name, value, onChange, isDate, warning }) => {
     return (
         <div className="mb-4">
             <input
-                type={isDate ? 'date' : 'text'}
+                type={isDate ? "date" : "text"}
                 name={name}
                 value={value}
                 onChange={onChange}
