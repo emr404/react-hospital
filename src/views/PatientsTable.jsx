@@ -3,7 +3,7 @@ import PatientForm from './PatientForm.jsx';
 import patientsData from '../data/patientsData'
 import PatientDetails from './PatientDetails';
 import DeletePatient from './DeletePatient';
-import Button from "../components/Button";
+import Button from '../components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
 
