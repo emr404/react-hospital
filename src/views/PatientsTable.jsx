@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PatientForm from './PatientForm.jsx';
+import PatientForm from './PatientForm';
 import patientsData from '../data/patientsData'
 import PatientDetails from './PatientDetails';
 import DeletePatient from './DeletePatient';
