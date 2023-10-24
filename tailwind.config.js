@@ -14,6 +14,8 @@ module.exports = {
                 'hover:bg-gray-700',
                 'bg-cream-500',
                 'cursor-pointer',
+                'cursor-not-allowed'
+                ,
             ],
         },
     },
